@@ -9,7 +9,7 @@ const ItemCard = ({ item }) => {
   const [selected, setSelected] = useState(null);
 
   return (
-    <Dialog key={item._id}>
+    <Dialog>
       <DialogTrigger asChild>
         <Card
           onClick={() => setSelected(item)}

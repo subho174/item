@@ -12,7 +12,7 @@ export default async function ViewItemsPage() {
 
   try {
     await connectDB();
-    items = await Item.find({}).sort({ createdAt: -1 }).lean();
+    items = await Item.find({}).sort({ createdAt: -1 }).select("-createdAt -updatedAt -__v -_id").lean();
   } catch (error) {
     console.error(error);
     throw new Error("Failed to fetch items");
@@ -54,7 +54,7 @@ export default async function ViewItemsPage() {
           {items.map((item, i) => (
             <ClientWrapper
               key={i}
-              item={{ ...item, _id: item._id.toString() }}
+              item={item}
             />
           ))}
         </div>
