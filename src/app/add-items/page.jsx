@@ -188,7 +188,7 @@ export default function AddItemsPage() {
               {isLoading ? (
                 <>
                   <Loader2 className="animate-spin" />
-                  UpLoading...
+                  Adding...
                 </>
               ) : (
                 <>
